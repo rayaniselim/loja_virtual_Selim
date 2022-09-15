@@ -5,9 +5,13 @@ import 'package:loja_virtual_selim/screens/base/base_screen.dart';
 import 'package:loja_virtual_selim/screens/base/login/login_screen.dart';
 import 'package:loja_virtual_selim/screens/base/login/signup/signup_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-main() {
-  Firebase.initializeApp();
+main() async {
+  await Firebase.initializeApp(
+      // options: DefaultFirebaseOptions.currentPlatform,
+      );
+
   runApp(MyApp());
 }
 

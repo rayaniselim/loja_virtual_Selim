@@ -26,16 +26,16 @@ class LoginScreen extends StatelessWidget {
         ),
         centerTitle: true,
         actions: <Widget>[
-          FlatButton(
+          TextButton(
             onPressed: () {
 // SETA PRA VOLTAR PRA PAGINA ANTERIOR
               Navigator.of(context).pushReplacementNamed('/signup');
             },
-            textColor: Color.fromARGB(255, 216, 170, 6),
             child: const Text(
               'CRIAR CONTA',
               style: TextStyle(
                 fontSize: 14,
+                color: Color.fromARGB(255, 216, 170, 6),
               ),
             ),
           ),
@@ -110,9 +110,9 @@ class LoginScreen extends StatelessWidget {
 // BOTAO ESQUECI MINHA SENHA
                       Align(
                         alignment: Alignment.centerRight,
-                        child: FlatButton(
+                        child: TextButton(
                           onPressed: () {},
-                          padding: EdgeInsets.zero,
+                          // padding: EdgeInsets.zero,
                           child: const Text('Esqueci minha senha'),
                         ),
                       ),
@@ -122,7 +122,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                       SizedBox(
                         height: 44,
-                        child: RaisedButton(
+                        child: ElevatedButton(
                           onPressed:
                               // child: ElevatedButton(
                               userManager.loading
@@ -141,7 +141,7 @@ class LoginScreen extends StatelessWidget {
                                                 id: '',
                                               ),
                                               onFail: (e) {
-                                                scaffoldKey.currentState!
+                                                ScaffoldMessenger.of(context)
                                                     .showSnackBar(
                                                   SnackBar(
                                                     content: Text(
@@ -156,10 +156,10 @@ class LoginScreen extends StatelessWidget {
                                             );
                                       }
                                     },
-                          color: Theme.of(context).primaryColor,
-                          disabledColor:
-                              Theme.of(context).primaryColor.withAlpha(100),
-                          textColor: Colors.white,
+                          // color: Theme.of(context).primaryColor,
+                          // disabledColor:
+                          //     Theme.of(context).primaryColor.withAlpha(100),
+                          // textColor: Colors.white,
                           child: userManager.loading
                               ? const CircularProgressIndicator(
                                   valueColor:

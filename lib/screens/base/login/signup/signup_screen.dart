@@ -96,17 +96,17 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   SizedBox(
                     height: 44,
-                    child: RaisedButton(
-                      color: Theme.of(context).primaryColor,
-                      disabledColor:
-                          Theme.of(context).primaryColor.withAlpha(100),
-                      textColor: Colors.white,
+                    child: ElevatedButton(
+                      // color: Theme.of(context).primaryColor,
+                      // disabledColor:
+                      //     Theme.of(context).primaryColor.withAlpha(100),
+                      // textColor: Colors.white,
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
                           formKey.currentState!.save();
 
                           if (usuario.password != usuario.confirmPassword) {
-                            scaffoldKey.currentState!.showSnackBar(
+                            ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: const Text('Senhas não coincidem!'),
                                 backgroundColor: Colors.red,
@@ -121,7 +121,8 @@ class SignUpScreen extends StatelessWidget {
                                 Navigator.of(context).pop();
                               },
                               onFail: (e) {
-                                scaffoldKey.currentState?.showSnackBar(SnackBar(
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(SnackBar(
                                   content: Text('Falha ao Cadastrar: $e'),
                                   backgroundColor: Colors.red,
                                 ));
